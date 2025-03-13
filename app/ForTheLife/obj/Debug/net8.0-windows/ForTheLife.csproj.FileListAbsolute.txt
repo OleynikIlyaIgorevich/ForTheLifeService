@@ -124,3 +124,4 @@ C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\ne
 C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\net8.0-windows\ForTheLife.pdb
 C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\net8.0-windows\ForTheLife.genruntimeconfig.cache
 C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\net8.0-windows\ref\ForTheLife.dll
+C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\net8.0-windows\ForTheLife.sourcelink.json

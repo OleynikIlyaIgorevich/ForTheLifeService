@@ -51,6 +51,7 @@ namespace ForTheLife.Views
                 orders = dbContext.Orders
                     .Include(x => x.OrdersProducts)
                     .Include(x => x.User)
+                    .Include(x => x.OrdersStatus)
                     .Where(x => x.UserId == user.Id)
                     .ToList();
             }
@@ -59,6 +60,7 @@ namespace ForTheLife.Views
                 orders = dbContext.Orders
                     .Include(x => x.OrdersProducts)
                     .Include(x => x.User)
+                    .Include(x => x.OrdersStatus)
                     .ToList();
             }
                 

@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|c:\\users\\ilyao\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\forthelife\\dbcontexts\\forthelifedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|solutionrelative:dbcontexts\\forthelifedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|c:\\users\\ilyao\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\forthelife\\views\\orderswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|solutionrelative:views\\orderswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|c:\\users\\ilyao\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\forthelife\\views\\orderswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5664C774-CF3F-4FF9-BE7C-DC859DEC844A}|ForTheLife.csproj|solutionrelative:views\\orderswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +22,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdersWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ilyao\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\ForTheLife\\Views\\OrdersWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\OrdersWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\ilyao\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\ForTheLife\\Views\\OrdersWindow.xaml.cs",
+              "RelativeToolTip": "Views\\OrdersWindow.xaml.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwDEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T18:59:56.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdersWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ilyao\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\ForTheLife\\Views\\OrdersWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\OrdersWindow.xaml",
+              "ToolTip": "C:\\Users\\ilyao\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\ForTheLife\\Views\\OrdersWindow.xaml",
+              "RelativeToolTip": "Views\\OrdersWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-13T18:58:42.209Z"
             },
             {
               "$type": "Document",
@@ -28,7 +60,7 @@
               "RelativeDocumentMoniker": "DbContexts\\ForTheLifeDbContext.cs",
               "ToolTip": "C:\\Users\\ilyao\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\demo\\app\\ForTheLife\\DbContexts\\ForTheLifeDbContext.cs",
               "RelativeToolTip": "DbContexts\\ForTheLifeDbContext.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA6wCgAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwCgAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T18:43:28.347Z",
               "EditorCaption": ""

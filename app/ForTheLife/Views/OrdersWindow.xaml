@@ -53,6 +53,7 @@
 
                             </StackPanel>
 
+                            <TextBlock Text="{Binding OrdersStatus.Title, StringFormat='Статус заказа: {0}'}" />
 
                         </StackPanel>
                     </Border>
@@ -89,7 +90,6 @@
                 </Button>
                 <Button
                     x:Name="UpdateOrderButton"
-                    
                     Margin="10"
                     Click="ShowUpdateOrderWindow">
                     <TextBlock Margin="5" Text="Редактировать заказ" />
