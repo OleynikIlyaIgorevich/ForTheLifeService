@@ -1,0 +1,20 @@
+﻿ForTheLife
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\obj\Debug\net8.0-windows\
+ForTheLife
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\ilyao\OneDrive\Рабочий стол\demo\app\ForTheLife\App.xaml
+8-1457061935
+7-1697944368
+2949319617
+2122056058730
+Views\CatalogWindow.xaml;Views\CreateOrderWindow.xaml;Views\CreateProductWindow.xaml;Views\OrdersWindow.xaml;Views\SignInWindow.xaml;Views\SignUpWindow.xaml;Views\UpdateOrderWindow.xaml;Views\UpdateProductWindow.xaml;
+
+False
+

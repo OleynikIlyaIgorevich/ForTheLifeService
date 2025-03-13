@@ -1,0 +1,244 @@
+﻿<Window
+    x:Class="ForTheLife.Views.UpdateOrderWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ForTheLife.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:entities="clr-namespace:ForTheLife.Entities"
+    xmlns:local="clr-namespace:ForTheLife.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ForTheLife.Models"
+    Title="Обновление заказа"
+    Width="1080"
+    Height="928"
+    MinWidth="1080"
+    MinHeight="928"
+    FontFamily="Comic Sans MS"
+    Icon="..\Resources\Images\picture.png"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <converters:SaleToColorConverter x:Key="STCC" />
+        <converters:ImageUrlConverter x:Key="IUC" />
+
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="24"
+            Text="Обновление заказа" />
+
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+
+
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
+                        <RowDefinition Height="50" />
+
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Margin="10"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Каталог товаров" />
+
+                    <ListView x:Name="ProductsLV" Grid.Row="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate DataType="{x:Type entities:Product}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition MaxWidth="100" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border BorderBrush="Black" BorderThickness="2">
+                                        <StackPanel Margin="5" VerticalAlignment="Center">
+
+                                            <TextBlock Text="{Binding Article, StringFormat='Артикул: {0}'}" />
+                                            <TextBlock Text="{Binding ProductName.Title, StringFormat='Наименование товара: {0}'}" />
+                                            <TextBlock Text="{Binding Price, StringFormat='Цена на товар {0} руб'}" />
+                                            <TextBlock Text="{Binding CurrentSale, StringFormat='Скидка на товар {0} %'}" />
+
+                                        </StackPanel>
+                                    </Border>
+
+
+                                    <Border
+                                        Grid.Column="1"
+                                        MaxWidth="75"
+                                        BorderBrush="Black"
+                                        BorderThickness="2">
+                                        <Image Source="{Binding ImageUrl, Converter={StaticResource IUC}}" />
+                                    </Border>
+
+                                </Grid>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="Кол-во" />
+                            <TextBox
+                                x:Name="QuantityTB"
+                                MinWidth="200"
+                                Margin="10"
+                                VerticalContentAlignment="Center"
+                                Text="0" />
+                        </StackPanel>
+
+                        <Button
+                            Grid.Column="1"
+                            Margin="10"
+                            HorizontalAlignment="Right"
+                            Click="AddProductToOrder">
+                            <TextBlock Text="Добавить выбранный товар" />
+                        </Button>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
+                        <RowDefinition Height="50" />
+
+
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Margin="10"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Выбранные товары" />
+
+                    <ListView x:Name="ProductsInOrderLV" Grid.Row="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate DataType="{x:Type models:ProductInOrder}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition MaxWidth="100" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border BorderBrush="Black" BorderThickness="2">
+                                        <StackPanel Margin="5" VerticalAlignment="Center">
+
+                                            <TextBlock Text="{Binding Product.Article, StringFormat='Артикул: {0}'}" />
+                                            <TextBlock Text="{Binding Product.ProductName.Title, StringFormat='Наименование товара: {0}'}" />
+
+                                            <TextBlock Text="{Binding Product.Price, StringFormat='Цена на товар {0} руб'}" />
+
+                                            <TextBlock Text="{Binding Product.CurrentSale, StringFormat='Скидка на товар {0} %'}" />
+
+                                            <TextBlock Text="{Binding Quantity, StringFormat='Необходимое кол-во {0} шт'}" />
+
+
+                                        </StackPanel>
+                                    </Border>
+
+
+                                    <Border
+                                        Grid.Column="1"
+                                        MaxWidth="75"
+                                        BorderBrush="Black"
+                                        BorderThickness="2">
+                                        <Image Source="{Binding Product.ImageUrl, Converter={StaticResource IUC}}" />
+                                    </Border>
+
+                                </Grid>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                    <Button
+                        Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Click="DeleteProductFromOrder">
+                        <TextBlock Margin="5" Text="Удалить выбранный товар" />
+                    </Button>
+
+                </Grid>
+            </Grid>
+
+            <StackPanel
+                x:Name="ChooseStatusPanel"
+                Grid.Row="2"
+                Margin="10">
+                <TextBlock
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Text="Статус заказа" />
+                <ComboBox
+                    x:Name="OrdersStatusesCB"
+                    DisplayMemberPath="Title"
+                    IsEditable="True"
+                    IsReadOnly="True"
+                    Text="Выберите статус" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="2">
+            <Button Margin="10" Click="UpdateOrder">
+                <TextBlock Margin="10" Text="Обновить заказ" />
+            </Button>
+
+            <Button
+                x:Name="DeleteButton"
+                Margin="10"
+                Click="DeleteOrder">
+                <TextBlock Margin="10" Text="Удалить заказ" />
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
