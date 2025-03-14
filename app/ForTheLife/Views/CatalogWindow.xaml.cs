@@ -83,46 +83,33 @@ public partial class CatalogWindow : Window
         var saleFilter = SaleFilterCB.SelectedItem as string;
         using var dbContext = new ForTheLifeDbContext();
 
-        var productsQuary = dbContext.Products
-            .Include(x => x.Category)
-            .Include(x => x.ProductName);
-        var products = new List<Product>();
+        var productsQuary = saleFilter switch
+        {
+            "0 - 24%" => dbContext.Products
+                .Include(x => x.Category)
+                .Include(x => x.ProductName)
+                .Where(x => x.CurrentSale >= 0 && x.CurrentSale <= 24),
+            "25 - 49%" => dbContext.Products
+                .Include(x => x.Category)
+                .Include(x => x.ProductName)
+                .Where(x => x.CurrentSale >= 25 && x.CurrentSale <= 49),
+            "50 - 74%" => dbContext.Products
+                .Include(x => x.Category)
+                .Include(x => x.ProductName)
+                .Where(x => x.CurrentSale >= 50 && x.CurrentSale <= 74),
+            "75 - 100%" => dbContext.Products
+                .Include(x => x.Category)
+                .Include(x => x.ProductName)
+                .Where(x => x.CurrentSale >= 75 && x.CurrentSale <= 100),
+            _ => dbContext.Products
+                    .Include(x => x.Category)
+                    .Include(x => x.ProductName)
+        };
 
         var searchTerms = SearchTB.Text;
+        if (!string.IsNullOrWhiteSpace(searchTerms)) productsQuary = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower()));
 
-        switch (saleFilter)
-        {
-            case "0 - 24%":
-                if (!string.IsNullOrWhiteSpace(searchTerms))
-                    products = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower()) && x.CurrentSale >= 0 && 24 >= x.CurrentSale).ToList();
-                else
-                    products = productsQuary.Where(x => x.CurrentSale >= 0 && 24 >= x.CurrentSale).ToList();
-                break;
-            case "25 - 49%":
-                if (!string.IsNullOrWhiteSpace(searchTerms))
-                    products = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower()) && x.CurrentSale >= 25 && 49 >= x.CurrentSale).ToList();
-                else
-                    products = productsQuary.Where(x => x.CurrentSale >= 25 && 49 >= x.CurrentSale).ToList();
-                break;
-            case "50 - 74%":
-                if (!string.IsNullOrWhiteSpace(searchTerms))
-                    products = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower()) && x.CurrentSale >= 50 && 74 >= x.CurrentSale).ToList();
-                else
-                    products = productsQuary.Where(x => x.CurrentSale >= 50 && 74 >= x.CurrentSale).ToList();
-                break;
-            case "75 - 100%":
-                if (!string.IsNullOrWhiteSpace(searchTerms))
-                    products = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower()) && x.CurrentSale >= 75 && 100 >= x.CurrentSale).ToList();
-                else
-                    products = productsQuary.Where(x => x.CurrentSale >= 74 && 100 >= x.CurrentSale).ToList();
-                break;
-            default:
-                if (!string.IsNullOrWhiteSpace(searchTerms))
-                    products = productsQuary.Where(x => x.ProductName.Title.ToLower().Contains(searchTerms.ToLower())).ToList();
-                else
-                    products = productsQuary.ToList();
-                break;
-        }
+        var products = productsQuary.ToList();
 
         ProductsCountTB.Text = $"Найдено {products.Count} товаров";
         ProductsLV.ItemsSource = products;
